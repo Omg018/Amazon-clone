@@ -1,0 +1,156 @@
+body {
+  background-color: rgb(187, 181, 181);
+  overflow-x: hidden;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2000px;
+
+}
+
+
+.home_row_box {
+
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+  top: 260px;
+
+
+
+}
+
+.pc {
+  visibility: hidden;
+
+  @media (max-width: 600px) {
+
+    display: none;
+
+  }
+
+}
+
+
+
+
+
+
+.slide-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+}
+
+
+
+
+.slide-item img {
+  mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  transition: opacity 0.5s;
+  overflow: auto;
+
+  width: 2000px;
+  object-fit: cover;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    /* Set width to 100% for 600px screens */
+    max-width: 430px;
+    transform: translate(-10%, 10%) scale(1.2);
+    /* Limit the maximum width to 100px */
+  }
+
+  @media (max-width: 1400px) {
+    width: 1370px;
+    mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1.9));
+
+
+  }
+
+}
+
+
+
+.slide-item.active {
+  opacity: 1;
+}
+
+.banner {
+  width: 100px !important;
+}
+
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --unhover-border-color: rgba(0, 0, 0, 0);
+  --unhover-text-color: rgba(255, 255, 255, 0);
+  --unhover-background-color: rgba(0, 0, 0, 0);
+
+  --hover-border-color: rgba(0, 0, 0, 0.8);
+  --hover-text-color: rgba(255, 255, 255, 0.8);
+  --hover-background-color: rgba(0, 0, 0, 0.8);
+
+  --transition-delay: 0.5s;
+}
+
+
+
+.slider-button {
+  font-size: 1rem;
+  padding: 5px 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--unhover-background-color);
+  border: 2px solid var(--unhover-border-color);
+  color: var(--unhover-text-color);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.slider-button-prev {
+  top: 195px;
+  left: 1px;
+  height: 250px;
+  width: 80px;
+  border: black;
+}
+
+.slider-button-next {
+  right: 1px;
+  top: 195px;
+  height: 250px;
+  width: 80px;
+  border: black;
+}
+
+.slider-button:hover,
+.slider-button:focus {
+  background-color: var(--hover-background-color);
+
+  border: 2px solid var(--hover-border-color);
+  color: var(--hover-text-color);
+}
